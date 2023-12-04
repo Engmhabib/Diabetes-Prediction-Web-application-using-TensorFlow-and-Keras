@@ -7,7 +7,6 @@ import tensorflow as tf
 import numpy as np
 
 # Load the TensorFlow model
-@st.cache_data
 def load_model(model_path):
     try:
         return tf.keras.models.load_model(model_path)
@@ -16,7 +15,6 @@ def load_model(model_path):
         return None
 
 # Load the data (ensure pandas is installed)
-@st.cache_data
 def load_data(data_path):
     try:
         return pd.read_csv(data_path)
@@ -39,7 +37,7 @@ def preprocess_input(gender, age, hypertension, heart_disease, smoking_history, 
     hba1c = (hba1c - MIN_HBA1C) / (MAX_HBA1C - MIN_HBA1C)
     blood_glucose = (blood_glucose - MIN_GLUCOSE) / (MAX_GLUCOSE - MIN_GLUCOSE)
 
-    # Create an array with the expected number of features (15)
+    # Create an array with the expected number of features
     processed_input = [gender, age, hypertension, heart_disease, smoking_history, bmi, hba1c, blood_glucose]
 
     return processed_input
@@ -62,7 +60,6 @@ MIN_AGE, MAX_AGE = 0, 100
 MIN_BMI, MAX_BMI = 10, 50
 MIN_HBA1C, MAX_HBA1C = 3.5, 9.0
 MIN_GLUCOSE, MAX_GLUCOSE = 80, 300
-
 # Main app
 def main():
     # Custom styles
