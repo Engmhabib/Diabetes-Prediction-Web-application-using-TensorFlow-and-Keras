@@ -107,7 +107,7 @@ def main():
 
     # Load model and data
     model_path = 'diabetes_prediction_model.keras'
-    data_path = 'diabetes_training_data cd "C:\Users\habib\Desktop\new attempt".csv'
+    data_path = 'diabetes_training_data.csv'
     model = load_model(model_path)
     data = load_data(data_path)
 
